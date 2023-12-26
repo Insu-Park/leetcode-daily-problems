@@ -10,5 +10,4 @@ class Solution:
                 for t in range(1, k + 1):
                     dp[i + 1][j + t] += dp[i][j] % modulo
 
-        print(dp)
         return dp[n][target] % modulo
