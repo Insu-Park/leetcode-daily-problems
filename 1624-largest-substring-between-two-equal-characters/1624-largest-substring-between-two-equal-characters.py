@@ -1,8 +1,7 @@
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
-        alphabets = set(s)
         max_len = -1
-        for alphabet in alphabets:
-            start, end = s.find(alphabet), s.rfind(alphabet)
+        for idx in range(len(s)):
+            start, end = s.find(s[idx]), s.rfind(s[idx])
             max_len = max(max_len, end - start - 1)
         return max_len
