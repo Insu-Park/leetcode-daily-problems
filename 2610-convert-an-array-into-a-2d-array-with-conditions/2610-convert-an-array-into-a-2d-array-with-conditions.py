@@ -1,15 +1,15 @@
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
-        answer, dics = [], [{}]
+        answer, rows = [], [set()]
         for num in nums:
-            for dic in dics:
-                if num not in dic:
-                    dic[num] = 1
+            for row in rows:
+                if num not in row:
+                    row.add(num)
                     break
             else:
-                dics.append({num: 1})
+                rows.append(set([num]))
         
-        for dic in dics:
-            answer.append(dic.keys())
+        for row in rows:
+            answer.append(list(row))
 
         return answer
