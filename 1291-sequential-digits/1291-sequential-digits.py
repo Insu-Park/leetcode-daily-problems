@@ -4,13 +4,8 @@ class Solution:
         seq_digits = []
         for i in range(0, 9):
             for j in range(i + 2, 10):
-                seq_digits.append(int(nums[i:j]))
+                t = int(nums[i:j])
+                if low <= t <= high:
+                    seq_digits.append(t)
         
-        seq_digits.sort()
-        answer = []
-
-        for i in seq_digits:
-            if low <= i <= high:
-                answer.append(i)
-
-        return answer
+        return sorted(seq_digits)
