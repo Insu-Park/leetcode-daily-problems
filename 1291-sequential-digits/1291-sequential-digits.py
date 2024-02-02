@@ -1,10 +1,10 @@
 class Solution:
     def sequentialDigits(self, low: int, high: int) -> List[int]:
-        nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        nums = '123456789'
         seq_digits = []
         for i in range(0, 9):
             for j in range(i + 2, 10):
-                seq_digits.append(int(''.join(nums[i:j])))
+                seq_digits.append(int(nums[i:j]))
         
         seq_digits.sort()
         answer = []
