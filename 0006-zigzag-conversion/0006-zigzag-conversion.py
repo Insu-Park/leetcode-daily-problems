@@ -19,9 +19,4 @@ class Solution:
                 y += 1
             index += 1
         
-        answer = []
-        for x in range(numRows):
-            for y in range(max_cols):
-                if lst[x][y] != '':
-                    answer.append(lst[x][y])
-        return "".join(answer)
+        return "".join(["".join(item) for item in lst])
