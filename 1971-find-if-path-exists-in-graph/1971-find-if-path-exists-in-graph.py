@@ -5,26 +5,21 @@ class Solution:
 
         answer = False
         checked = [False] * n
-        checked[source] = True
-
         graph = defaultdict(list)
 
         for s, d in edges:
             graph[s].append(d)
             graph[d].append(s)
 
-
-        def dfs(node, graph):
-            nonlocal answer, checked
-            if node == destination:
-                return True
-
+        def dfs(node):
+            nonlocal answer, checked, graph
             checked[node] = True
             for n in graph[node]:
-                if not checked[n] and dfs(n, graph):
-                    answer = True
+                if not checked[n]:
+                    if n == destination:
+                        answer = True
+                    else:
+                        dfs(n)
             
-            return False
-
-        dfs(source, graph)
+        dfs(source)
         return answer
