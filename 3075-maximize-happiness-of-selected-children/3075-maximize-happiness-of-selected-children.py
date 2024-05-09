@@ -4,7 +4,10 @@ class Solution:
         answer = 0
         count = 0
         while k > 0:
-            answer += max(0, happiness.pop() - count)
+            v = happiness.pop() - count
+            if v <= 0:
+                break
+            answer += v
             count += 1
             k -= 1
         
