@@ -7,13 +7,11 @@ class Solution:
                 count += 1
             
             for i in range(start, len(nums)):
-                can_add = True
                 for num in current_subset:
                     if abs(num - nums[i]) == k:
-                        can_add = False
                         break
                         
-                if can_add:
+                else:
                     current_subset.append(nums[i])
                     backtrack(i + 1, current_subset)
                     current_subset.pop()
