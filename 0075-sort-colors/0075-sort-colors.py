@@ -3,4 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums.sort()
+        c = Counter(nums)
+        nums[:c[0]] = [0] * c[0]
+        nums[c[0]:c[0] + c[1]] = [1] * c[1]
+        nums[c[0] + c[1]:] = [2] * c[2]
+        
+            
