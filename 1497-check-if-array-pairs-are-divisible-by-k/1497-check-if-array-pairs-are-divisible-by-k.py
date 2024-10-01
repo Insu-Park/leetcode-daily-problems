@@ -3,7 +3,7 @@ class Solution:
         freq = [0] * k
         
         for num in arr:
-            remainder = (num % k + k) % k
+            remainder = num % k
             freq[remainder] += 1
         
         if freq[0] % 2 != 0:  
