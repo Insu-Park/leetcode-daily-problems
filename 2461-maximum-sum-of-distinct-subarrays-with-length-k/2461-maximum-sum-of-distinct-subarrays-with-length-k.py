@@ -6,11 +6,9 @@ class Solution:
         max_sum = 0
 
         for i in range(n):
-            # Add the current element to the window
             mp[nums[i]] += 1
             ws += nums[i]
 
-            # If the window size exceeds 'k', slide the window
             if i >= k:
                 le = nums[i - k]
                 mp[le] -= 1
@@ -18,7 +16,6 @@ class Solution:
                 if mp[le] == 0:
                     del mp[le]
 
-            # Check if the window has exactly 'k' distinct elements
             if i >= k - 1 and len(mp) == k:
                 max_sum = max(max_sum, ws)
 
