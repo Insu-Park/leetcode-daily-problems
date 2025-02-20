@@ -1,10 +1,9 @@
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
-        s = set(nums)
-        digit = len(nums)
-        fm = "{:0" + str(digit) + "d}"
-        for i in range(2 ** digit):
-            num = fm.format(int(format(i, 'b')))
-            if num not in s:
-                return num
+        ans = []
+        for i in range(len(nums)):
+            curr = nums[i][i]
+            ans.append("1" if curr == "0" else "0")
+        
+        return "".join(ans)
         
